@@ -7,7 +7,7 @@ const PasswordStrengthSection = ({ passStrength }) => {
         <div
           style={{
             width: `${100 / passStrength.length}%`,
-            height: 10,
+            height: 15,
             backgroundColor: el,
           }}
           key={index}

@@ -11,6 +11,30 @@ const initialState = [
   passStrengthColors.grey,
 ];
 
+const nonValidPass = [
+  passStrengthColors.red,
+  passStrengthColors.red,
+  passStrengthColors.red,
+];
+
+const easyPass = [
+  passStrengthColors.red,
+  passStrengthColors.grey,
+  passStrengthColors.grey,
+];
+
+const mediumPass = [
+  passStrengthColors.yellow,
+  passStrengthColors.yellow,
+  passStrengthColors.grey,
+];
+
+const strongPass = [
+  passStrengthColors.green,
+  passStrengthColors.green,
+  passStrengthColors.green,
+];
+
 const onlyLettersPattern = /^[a-zA-Z]+$/;
 const onlyDigitsPattern = /^\d+$/;
 const onlySymbolsPattern = /^[-!$%@#%&^&*()_+|~=`{}[\]:";'<>?,./]+$/;
@@ -26,7 +50,10 @@ const letterSymbolAndDigitsPattern =
 
 export {
   initialState,
-  passStrengthColors,
+  nonValidPass,
+  easyPass,
+  mediumPass,
+  strongPass,
   onlyLettersPattern,
   onlyDigitsPattern,
   onlySymbolsPattern,

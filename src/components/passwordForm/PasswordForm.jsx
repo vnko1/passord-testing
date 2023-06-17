@@ -10,6 +10,12 @@ const PasswordForm = ({ setPass }) => {
 
   return (
     <input
+      style={{
+        backgroundColor: "silver",
+        color: "black",
+        width: 320,
+        height: 30,
+      }}
       type="text"
       value={passValue}
       autoComplete="new-password"

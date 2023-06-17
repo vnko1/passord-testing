@@ -1,6 +1,9 @@
 import {
   initialState,
-  passStrengthColors,
+  nonValidPass,
+  easyPass,
+  mediumPass,
+  strongPass,
   onlyLettersPattern,
   onlyDigitsPattern,
   onlySymbolsPattern,
@@ -12,7 +15,10 @@ import {
 import { checkPasswordStrength } from "./functions";
 export {
   initialState,
-  passStrengthColors,
+  nonValidPass,
+  easyPass,
+  mediumPass,
+  strongPass,
   onlyLettersPattern,
   onlyDigitsPattern,
   onlySymbolsPattern,

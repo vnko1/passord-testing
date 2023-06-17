@@ -1,6 +1,9 @@
 import {
   initialState,
-  passStrengthColors,
+  nonValidPass,
+  easyPass,
+  mediumPass,
+  strongPass,
   onlyLettersPattern,
   onlyDigitsPattern,
   onlySymbolsPattern,
@@ -27,33 +30,13 @@ const checkPasswordStrength = (password) => {
   const strongPassStrength =
     letterSymbolAndDigitsPattern.test(password) && password.length >= 8;
 
-  if (nonValidPassStrength)
-    return [
-      passStrengthColors.red,
-      passStrengthColors.red,
-      passStrengthColors.red,
-    ];
+  if (nonValidPassStrength) return nonValidPass;
 
-  if (easyPassStrength)
-    return [
-      passStrengthColors.red,
-      passStrengthColors.grey,
-      passStrengthColors.grey,
-    ];
+  if (easyPassStrength) return easyPass;
 
-  if (mediumPassStrength)
-    return [
-      passStrengthColors.yellow,
-      passStrengthColors.yellow,
-      passStrengthColors.grey,
-    ];
+  if (mediumPassStrength) return mediumPass;
 
-  if (strongPassStrength)
-    return [
-      passStrengthColors.green,
-      passStrengthColors.green,
-      passStrengthColors.green,
-    ];
+  if (strongPassStrength) return strongPass;
 
   return initialState;
 };
