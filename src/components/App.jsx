@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { PasswordForm, PasswordStrengthResult } from "components";
+import { PasswordForm, PasswordStrengthSection } from "components";
 import { initialState, checkPasswordStrength } from "utils";
 import "./App.css";
 
@@ -10,10 +10,11 @@ function App() {
   useEffect(() => {
     setPassStrength(checkPasswordStrength(pass));
   }, [pass]);
+
   return (
     <>
       <PasswordForm setPass={setPass} />
-      <PasswordStrengthResult passStrength={passStrength} />
+      <PasswordStrengthSection passStrength={passStrength} />
     </>
   );
 }

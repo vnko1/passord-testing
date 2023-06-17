@@ -1,4 +1,4 @@
 import PasswordForm from "./passwordForm/PasswordForm";
-import PasswordStrengthResult from "./passwordStrengthResult/PasswordStrengthResult";
+import PasswordStrengthSection from "./passwordStrengthSection/PasswordStrengthSection";
 
-export { PasswordForm, PasswordStrengthResult };
+export { PasswordForm, PasswordStrengthSection };

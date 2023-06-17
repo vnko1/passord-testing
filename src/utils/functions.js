@@ -4,39 +4,41 @@ import {
   onlyLettersPattern,
   onlyDigitsPattern,
   onlySymbolsPattern,
-  digitsAndLetterPattern,
-  digitsAndSymbolPattern,
+  digitsAndLettersPattern,
+  digitsAndSymbolsPattern,
   lettersAndSymbolsPattern,
-  letterSymbolAndDigits,
+  letterSymbolAndDigitsPattern,
 } from "./constants";
 
 const checkPasswordStrength = (password) => {
-  const easyPasStrength =
+  const nonValidPassStrength = password.length > 0 && password.length < 8;
+
+  const easyPassStrength =
     onlyLettersPattern.test(password) ||
     onlyDigitsPattern.test(password) ||
-    onlySymbolsPattern.test(password);
+    (onlySymbolsPattern.test(password) && password.length >= 8);
 
   const mediumPassStrength =
-    digitsAndLetterPattern.test(password) ||
-    digitsAndSymbolPattern.test(password) ||
-    lettersAndSymbolsPattern.test(password);
+    (digitsAndLettersPattern.test(password) ||
+      digitsAndSymbolsPattern.test(password) ||
+      lettersAndSymbolsPattern.test(password)) &&
+    password.length >= 8;
 
-  const strongPassStrength = letterSymbolAndDigits.test(password);
+  const strongPassStrength =
+    letterSymbolAndDigitsPattern.test(password) && password.length >= 8;
 
-  if (password.length === 0) return initialState;
-
-  if (password.length < 8)
+  if (nonValidPassStrength)
     return [
       passStrengthColors.red,
       passStrengthColors.red,
       passStrengthColors.red,
     ];
 
-  if (strongPassStrength)
+  if (easyPassStrength)
     return [
-      passStrengthColors.green,
-      passStrengthColors.green,
-      passStrengthColors.green,
+      passStrengthColors.red,
+      passStrengthColors.grey,
+      passStrengthColors.grey,
     ];
 
   if (mediumPassStrength)
@@ -46,11 +48,11 @@ const checkPasswordStrength = (password) => {
       passStrengthColors.grey,
     ];
 
-  if (easyPasStrength)
+  if (strongPassStrength)
     return [
-      passStrengthColors.red,
-      passStrengthColors.grey,
-      passStrengthColors.grey,
+      passStrengthColors.green,
+      passStrengthColors.green,
+      passStrengthColors.green,
     ];
 
   return initialState;

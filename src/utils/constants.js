@@ -11,14 +11,18 @@ const initialState = [
   passStrengthColors.grey,
 ];
 
-const onlyLettersPattern = /^[A-Za-z\s]*$/;
+const onlyLettersPattern = /^[a-zA-Z]+$/;
 const onlyDigitsPattern = /^\d+$/;
-const onlySymbolsPattern = /\W|_/g;
-const digitsAndLetterPattern = /[^A-Za-z0-9]+/;
-const digitsAndSymbolPattern = /[^0-9\W|_]+/;
-const lettersAndSymbolsPattern = /[^A-Za-z\W|_]+/;
-const letterSymbolAndDigits =
-  /^.*(?=.{8,120})(?!.*\s)(?=.*[a-z])(?=.*[A-Z])(?=.*\d).*$/;
+const onlySymbolsPattern = /^[-!$%@#%&^&*()_+|~=`{}[\]:";'<>?,./]+$/;
+
+const digitsAndLettersPattern = /^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$/;
+const digitsAndSymbolsPattern =
+  /^(?=.*[0-9])(?=.*[-!$%@#%&^&*()_+|~=`{}[\]:";'<>?,./])([0-9-!$%@#%&^&*()_+|~=`{}[\]:";'<>?,./]+)$/;
+const lettersAndSymbolsPattern =
+  /^(?=.*[a-zA-Z])(?=.*[-!$%@#%&^&*()_+|~=`{}[\]:";'<>?,./])([a-zA-Z-!$%@#%&^&*()_+|~=`{}[\]:";'<>?,./]+)$/;
+
+const letterSymbolAndDigitsPattern =
+  /^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[-!$%@#%&^&*()_+|~=`{}[\]:";'<>?,./])([0-9a-zA-Z-!$%@#%&^&*()_+|~=`{}[\]:";'<>?,./]+)$/;
 
 export {
   initialState,
@@ -26,8 +30,8 @@ export {
   onlyLettersPattern,
   onlyDigitsPattern,
   onlySymbolsPattern,
-  digitsAndLetterPattern,
-  digitsAndSymbolPattern,
+  digitsAndLettersPattern,
+  digitsAndSymbolsPattern,
   lettersAndSymbolsPattern,
-  letterSymbolAndDigits,
+  letterSymbolAndDigitsPattern,
 };

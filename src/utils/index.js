@@ -4,10 +4,10 @@ import {
   onlyLettersPattern,
   onlyDigitsPattern,
   onlySymbolsPattern,
-  digitsAndLetterPattern,
-  digitsAndSymbolPattern,
+  digitsAndLettersPattern,
+  digitsAndSymbolsPattern,
   lettersAndSymbolsPattern,
-  letterSymbolAndDigits,
+  letterSymbolAndDigitsPattern,
 } from "./constants";
 import { checkPasswordStrength } from "./functions";
 export {
@@ -16,9 +16,9 @@ export {
   onlyLettersPattern,
   onlyDigitsPattern,
   onlySymbolsPattern,
-  digitsAndLetterPattern,
-  digitsAndSymbolPattern,
+  digitsAndLettersPattern,
+  digitsAndSymbolsPattern,
   lettersAndSymbolsPattern,
-  letterSymbolAndDigits,
+  letterSymbolAndDigitsPattern,
   checkPasswordStrength,
 };

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
-// eslint-disable-next-line react/prop-types
 const PasswordForm = ({ setPass }) => {
   const [passValue, setPassValue] = useState("");
 
@@ -10,11 +10,14 @@ const PasswordForm = ({ setPass }) => {
 
   return (
     <input
-      type="password"
+      type="text"
       value={passValue}
+      autoComplete="new-password"
       onChange={(e) => setPassValue(e.currentTarget.value)}
     />
   );
 };
+
+PasswordForm.propTypes = { setPass: PropTypes.func.isRequired };
 
 export default PasswordForm;
