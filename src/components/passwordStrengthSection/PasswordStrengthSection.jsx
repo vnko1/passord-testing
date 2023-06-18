@@ -1,12 +1,14 @@
 import PropTypes from "prop-types";
+import { checkPasswordStrength } from "utils";
 
-const PasswordStrengthSection = ({ passStrength }) => {
+const PasswordStrengthSection = ({ pass }) => {
+  const pasStrengthRes = checkPasswordStrength(pass);
   return (
     <div style={{ display: "flex", paddingTop: 10, width: "100%" }}>
-      {passStrength.map((el, index) => (
+      {pasStrengthRes.map((el, index) => (
         <div
           style={{
-            width: `${100 / passStrength.length}%`,
+            width: `${100 / pasStrengthRes.length}%`,
             height: 15,
             backgroundColor: el,
           }}
@@ -18,7 +20,7 @@ const PasswordStrengthSection = ({ passStrength }) => {
 };
 
 PasswordStrengthSection.propTypes = {
-  passStrength: PropTypes.arrayOf(PropTypes.string).isRequired,
+  pass: PropTypes.string.isRequired,
 };
 
 export default PasswordStrengthSection;
