@@ -1,6 +1,13 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
+const styles = {
+  backgroundColor: "silver",
+  color: "black",
+  width: 320,
+  height: 30,
+};
+
 const PasswordForm = ({ setPass }) => {
   const [passValue, setPassValue] = useState("");
 
@@ -10,12 +17,7 @@ const PasswordForm = ({ setPass }) => {
 
   return (
     <input
-      style={{
-        backgroundColor: "silver",
-        color: "black",
-        width: 320,
-        height: 30,
-      }}
+      style={styles}
       type="text"
       value={passValue}
       autoComplete="new-password"

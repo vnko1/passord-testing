@@ -14,29 +14,25 @@ import {
 } from "./constants";
 
 const checkPasswordStrength = (password) => {
-  const nonValidPassStrength = password.length > 0 && password.length < 8;
+  if (password.length > 0 && password.length < 8) return nonValidPass;
 
-  const easyPassStrength =
+  if (
     onlyLettersPattern.test(password) ||
     onlyDigitsPattern.test(password) ||
-    (onlySymbolsPattern.test(password) && password.length >= 8);
+    (onlySymbolsPattern.test(password) && password.length >= 8)
+  )
+    return easyPass;
 
-  const mediumPassStrength =
+  if (
     (digitsAndLettersPattern.test(password) ||
       digitsAndSymbolsPattern.test(password) ||
       lettersAndSymbolsPattern.test(password)) &&
-    password.length >= 8;
+    password.length >= 8
+  )
+    return mediumPass;
 
-  const strongPassStrength =
-    letterSymbolAndDigitsPattern.test(password) && password.length >= 8;
-
-  if (nonValidPassStrength) return nonValidPass;
-
-  if (easyPassStrength) return easyPass;
-
-  if (mediumPassStrength) return mediumPass;
-
-  if (strongPassStrength) return strongPass;
+  if (letterSymbolAndDigitsPattern.test(password) && password.length >= 8)
+    return strongPass;
 
   return initialState;
 };
